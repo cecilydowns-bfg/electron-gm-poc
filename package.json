@@ -1,0 +1,121 @@
+{
+    "name": "game-manager",
+    "productName": "Game Manager",
+    "version": "1.0.0",
+    "description": "My Electron application description",
+    "main": ".webpack/main",
+    "scripts": {
+        "start": "electron-forge start",
+        "package": "electron-forge package",
+        "make": "electron-forge make",
+        "publish": "electron-forge publish",
+        "lint": "echo \"No linting configured\""
+    },
+    "keywords": [],
+    "author": {
+        "name": "cecilydowns",
+        "email": "cecily.downs@gmail.com"
+    },
+    "license": "MIT",
+    "config": {
+        "forge": {
+            "electronPackagerConfig": {
+                "protocols": [
+                    {
+                        "protocol": "bfgm",
+                        "name": "bfgm",
+                        "schemes": "bfgm"
+                    }
+                ]
+            },
+            "packagerConfig": {
+                "protocols": [
+                    {
+                        "protocol": "bfgm",
+                        "name": "bfgm",
+                        "schemes": "bfgm"
+                    }
+                ],
+                "icon": "./gmicons.icns"
+            },
+            "makers": [
+                {
+                    "name": "@electron-forge/maker-squirrel",
+                    "config": {
+                        "name": "electron_gm"
+                    }
+                },
+                {
+                    "name": "@electron-forge/maker-zip",
+                    "platforms": [
+                        "darwin"
+                    ]
+                },
+                {
+                    "name": "@electron-forge/maker-deb",
+                    "config": {}
+                },
+                {
+                    "name": "@electron-forge/maker-rpm",
+                    "config": {}
+                }
+            ],
+            "plugins": [
+                [
+                    "@electron-forge/plugin-webpack",
+                    {
+                        "mainConfig": "./webpack.main.config.js",
+                        "renderer": {
+                            "config": "./webpack.renderer.config.js",
+                            "entryPoints": [
+                                {
+                                    "html": "./src/index.html",
+                                    "js": "./src/renderer/renderer.js",
+                                    "name": "main_window"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            ]
+        },
+        "electronPackagerConfig": {
+            "protocols": [
+                {
+                    "protocol": "bfgm",
+                    "name": "bfgm",
+                    "schemes": "bfgm"
+                }
+            ]
+        }
+    },
+    "devDependencies": {
+        "@babel/core": "^7.12.13",
+        "@babel/preset-react": "^7.12.13",
+        "@electron-forge/cli": "^6.0.0-beta.54",
+        "@electron-forge/maker-deb": "^6.0.0-beta.54",
+        "@electron-forge/maker-rpm": "^6.0.0-beta.54",
+        "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
+        "@electron-forge/maker-zip": "^6.0.0-beta.54",
+        "@electron-forge/plugin-webpack": "6.0.0-beta.54",
+        "@marshallofsound/webpack-asset-relocator-loader": "^0.5.0",
+        "babel-loader": "^8.2.2",
+        "css-loader": "^4.2.1",
+        "electron": "11.2.2",
+        "file-loader": "^6.2.0",
+        "node-loader": "^1.0.1",
+        "prettier": "^2.2.1",
+        "style-loader": "^1.2.1"
+    },
+    "dependencies": {
+        "@apollo/client": "^3.3.12",
+        "adm-zip": "^0.5.3",
+        "electron-dl": "^3.0.2",
+        "electron-squirrel-startup": "^1.0.0",
+        "graphql": "^15.5.0",
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1",
+        "react-router-dom": "^5.2.0",
+        "react-use-localstorage": "^3.5.3"
+    }
+}

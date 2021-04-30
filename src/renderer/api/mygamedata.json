@@ -1,0 +1,12 @@
+[
+    {
+        "sku": "F730",
+        "url": "http://localhost:3005/F730.zip",
+        "fileName": "Mystery Case Files Huntsville"
+    },
+    {
+        "sku": "F602",
+        "url": "http://localhost:3005/F602.zip",
+        "fileName": "Atlantis"
+    }
+]
