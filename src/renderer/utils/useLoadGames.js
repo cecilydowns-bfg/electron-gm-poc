@@ -14,13 +14,13 @@ export const useLoadGames = () => {
     }, [error]);
 
     useEffect(() => {
-        if (games.length === 0 && data) {
+        if (games.length === 0 && data && !error) {
             const mappedGameData = data.products.items
                 .map((product) => getMacEnglishVariant(product))
                 .filter((product) => product !== null);
             gamesDispatch(mappedGameData);
         }
-    }, [data, games]);
+    }, [data, games, error]);
 
     return { games, loading };
 };

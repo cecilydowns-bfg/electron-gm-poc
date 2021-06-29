@@ -29,7 +29,7 @@ export const GENERATE_TOKEN = gql`
 
 export const PRODUCTS = gql`
     query {
-        products(filter: { category_id: { eq: "2" } }) {
+        products(filter: { category_id: { eq: "182" } }) {
             items {
                 __typename
                 sku
